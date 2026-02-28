@@ -500,8 +500,8 @@ footer p { color: var(--text-mid); font-size: 0.85rem; line-height: 1.8; }
   font-weight: 700;
   color: var(--text-dark);
 }
-.stat-card .stat-value.muted { color: var(--accent); }
-.articles-table {
+.stat-card .stat-value.published { color: #4caf7d; }
+.stat-card .stat-value.drafts { color: var(--accent); }.articles-table {
   background: var(--bg-card);
   border-radius: 14px;
   overflow: hidden;

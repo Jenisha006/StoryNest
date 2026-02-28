@@ -132,9 +132,9 @@ StoryNest/
 
 ## 📸 Screenshots
 
-| Home Page | Dashboard |
+| Home Page | Latest Stories | Dashboard | Contact
 |-----------|-----------|
-| ![Home](images/home.png) | ![Dashboard](images/latest_stories.png) |
+| ![Home](images/home.png) | ![Latest Stories](images/latest_stories.png) | [Dashboard](images/dashboard.png) | [Contact](images/contact.png)
 
 > Add your own screenshots in a `screenshots/` folder!
 
