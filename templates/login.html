@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Login – StoryNest{% endblock %}
+
+{% block content %}
+
+<div style="display:flex; flex-direction:column; flex:1;">
+  <div class="login-page">
+    <div class="login-card">
+
+      <h2>Admin Login</h2>
+      <p>Sign in to manage your stories and articles.</p>
+
+      <!-- ERROR MESSAGE -->
+      {% if error %}
+      <div class="login-error" style="display:block;">
+        {{ error }}
+      </div>
+      {% endif %}
+
+      <!-- LOGIN FORM -->
+      <form method="POST" action="{{ url_for('login') }}">
+
+        <div class="form-group">
+          <label>Username</label>
+          <input
+            type="text"
+            name="username"
+            placeholder="admin"
+            value="{{ request.form.get('username', '') }}"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            placeholder="••••••••"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="btn-primary"
+          style="width:100%; border-radius:10px; padding:0.9rem; margin-top:0.5rem;"
+        >
+          Sign In
+        </button>
+
+      </form>
+
+      <div style="margin-top:1.2rem; text-align:center;">
+        <span style="font-size:0.88rem; color:var(--text-mid);">
+          Don't have an account?
+          <a href="{{ url_for('register') }}" style="color:var(--text-dark); text-decoration:none; font-weight:700;">
+            Register
+          </a>
+        </span>
+      </div>
+      <div style="margin-top:0.8rem; text-align:center;">
+        <a href="{{ url_for('home') }}" style="font-size:0.85rem; color:var(--text-mid); text-decoration:none;">
+          ← Back to Home
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

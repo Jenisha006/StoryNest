@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}Register – StoryNest{% endblock %}
+
+{% block content %}
+
+<div style="display:flex; flex-direction:column; flex:1;">
+  <div class="login-page">
+    <div class="login-card">
+
+      <h2>Create Account</h2>
+      <p>Join StoryNest and start sharing your stories.</p>
+
+      <!-- ERROR MESSAGE -->
+      {% if error %}
+      <div class="login-error" style="display:block;">
+        {{ error }}
+      </div>
+      {% endif %}
+
+      <!-- REGISTER FORM -->
+      <form method="POST" action="{{ url_for('register') }}">
+
+        <div class="form-group">
+          <label>Username</label>
+          <input
+            type="text"
+            name="username"
+            placeholder="yourname"
+            value="{{ request.form.get('username', '') }}"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Email Address</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="you@example.com"
+            value="{{ request.form.get('email', '') }}"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            placeholder="••••••••"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            name="confirm_password"
+            placeholder="••••••••"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="btn-primary"
+          style="width:100%; border-radius:10px; padding:0.9rem; margin-top:0.5rem;"
+        >
+          Create Account
+        </button>
+
+      </form>
+
+      <div style="margin-top:1.2rem; text-align:center;">
+        <span style="font-size:0.88rem; color:var(--text-mid);">
+          Already have an account?
+          <a href="{{ url_for('login') }}" style="color:var(--text-dark); text-decoration:none; font-weight:700;">
+            Sign In
+          </a>
+        </span>
+      </div>
+
+      <div style="margin-top:0.8rem; text-align:center;">
+        <a href="{{ url_for('home') }}" style="font-size:0.85rem; color:var(--text-mid); text-decoration:none;">
+          ← Back to Home
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

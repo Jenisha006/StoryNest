@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}StoryNest – Where Stories Come to Life{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Where Stories Come to Life</h1>
+  <p>Discover carefully crafted articles about writing, creativity, and the art of storytelling. A sanctuary for readers and writers alike.</p>
+  <div class="hero-btns">
+    <a href="{{ url_for('add_article') }}" class="btn-primary">Start Writing</a>
+    <a href="#latest" class="btn-secondary">Read Articles</a>
+  </div>
+</section>
+
+<!-- LATEST STORIES -->
+<section class="articles-section" id="latest">
+  <div class="section-header">
+    <h2>Latest Stories</h2>
+    <div class="section-underline"></div>
+  </div>
+
+  <div class="articles-grid">
+    {% for article in articles %}
+    <a class="article-card" href="{{ url_for('article', article_id=article.id) }}">
+      <div class="card-category">{{ article.category }}</div>
+      <div class="card-title">{{ article.title }}</div>
+      <div class="card-excerpt">{{ article.content | striptags | truncate(120) }}</div>
+      <div class="card-footer">
+        <div class="card-date">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          {{ article.date }}
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+    {% else %}
+    <p style="color:var(--text-mid); grid-column: span 3;">No articles yet. Be the first to write one!</p>
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}

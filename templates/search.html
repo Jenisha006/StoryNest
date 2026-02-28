@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Search – StoryNest{% endblock %}
+
+{% block content %}
+<section class="articles-section">
+  <div class="section-header">
+    <h2>
+      {% if query %}
+        Results for "{{ query }}"
+      {% else %}
+        Search Stories
+      {% endif %}
+    </h2>
+    <div class="section-underline"></div>
+  </div>
+
+  <!-- SEARCH BAR -->
+  <form method="GET" action="{{ url_for('search') }}" style="margin-bottom:2.5rem;">
+    <div style="display:flex; gap:1rem; max-width:500px;">
+      <input
+        type="text"
+        name="q"
+        value="{{ query }}"
+        placeholder="Search by title, category or content..."
+        style="flex:1; background:var(--bg-card); border:1px solid var(--border); border-radius:50px; padding:0.75rem 1.4rem; font-family:var(--sans); font-size:0.9rem; color:var(--text-dark); outline:none;"
+      />
+      <button type="submit" class="btn-primary">Search</button>
+    </div>
+  </form>
+
+  {% if query %}
+    {% if results %}
+      <div class="articles-grid">
+        {% for article in results %}
+        <a class="article-card" href="{{ url_for('article', article_id=article.id) }}">
+          <div class="card-category">{{ article.category }}</div>
+          <div class="card-title">{{ article.title }}</div>
+          <div class="card-excerpt">{{ article.excerpt() }}</div>
+          <div class="card-footer">
+            <div class="card-date">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+              {{ article.date }}
+            </div>
+            <div class="card-arrow">→</div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p style="color:var(--text-mid); font-size:0.95rem;">
+        No articles found for "<strong>{{ query }}</strong>". Try a different search term.
+      </p>
+    {% endif %}
+  {% endif %}
+</section>
+{% endblock %}
