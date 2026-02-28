@@ -41,7 +41,7 @@ A clean, minimal personal blogging platform built with **Python Flask** where wr
 ## 🛠️ Tech Stack
 
 | Layer | Technology |
-|-------|-----------|
+|-------|------------|
 | Backend | Python, Flask |
 | Database | SQLite, SQLAlchemy |
 | Auth | Flask-Login, Flask-Bcrypt |
@@ -107,9 +107,11 @@ StoryNest/
 ├── requirements.txt        # Dependencies
 ├── README.md               # This file
 │
-├── data/
-│   ├── articles/           # (Legacy - now using SQLite)
-│   └── messages.txt        # (Legacy - now using SQLite)
+├── images/
+│   ├── home.png
+│   ├── latest_stories.png
+│   ├── dashboard.png
+│   └── contact.png
 │
 ├── templates/
 │   ├── base.html           # Shared navbar + footer
@@ -132,14 +134,17 @@ StoryNest/
 
 ## 📸 Screenshots
 
-| Home Page | Latest Stories |
-|-----------|-----------|
-| ![Home](images/home.png) | ![Latest Stories](images/latest_stories.png) |
+### Home Page
+![Home](images/home.png)
 
-| Dashboard | Contact |
-[Dashboard](images/dashboard.png) | [Contact](images/contact.png)
+### Latest Stories
+![Latest Stories](images/latest_stories.png)
 
-> Add your own screenshots in a `screenshots/` folder!
+### Dashboard
+![Dashboard](images/dashboard.png)
+
+### Contact
+![Contact](images/contact.png)
 
 ---
 
