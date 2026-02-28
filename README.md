@@ -134,7 +134,7 @@ StoryNest/
 
 | Home Page | Dashboard |
 |-----------|-----------|
-| ![Home](screenshots/home.png) | ![Dashboard](screenshots/dashboard.png) |
+| ![Home](images/home.png) | ![Dashboard](images/latest_stories.png) |
 
 > Add your own screenshots in a `screenshots/` folder!
 
